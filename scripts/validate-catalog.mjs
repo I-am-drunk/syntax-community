@@ -14,13 +14,40 @@ const EXT_BY_KIND = {
 
 const ID_RE = /^[a-z0-9][a-z0-9-]{1,62}$/
 const SEMVER_RE = /^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/i
+const OFFICIAL_IDS = new Set([
+  'mpm2d-analytic-geometry',
+  'thinking-in-code',
+  'math-graph-engine',
+  'grid-coding-engine',
+  'pen-studio',
+  'walkthrough-player',
+  'checkmark-gate',
+  'floating-windows',
+  'work-history',
+  'formula-playbook',
+])
+const FORBIDDEN_SVG_PATTERNS = [
+  /<script\b/i,
+  /<foreignObject\b/i,
+  /javascript:/i,
+  /\bon[a-z]+\s*=/i,
+]
 const FORBIDDEN_SANDBOX_PATTERNS = [
-  /fetch\s*\(/i,
-  /XMLHttpRequest/i,
-  /document\.cookie/i,
-  /window\.top/i,
-  /<script[^>]+src=/i,
-  /eval\s*\(/i,
+  /<meta\b/i,
+  /<script[^>]+src\s*=/i,
+  /\bwindow\.location\b/i,
+  /\bdocument\.location\b/i,
+  /\blocation\.(href|assign|replace)\b/i,
+  /\b(window\.)?top\b/i,
+  /\bparent\./i,
+  /\bfetch\s*\(/i,
+  /\bXMLHttpRequest\b/i,
+  /\bWebSocket\b/i,
+  /\bsendBeacon\b/i,
+  /\bdocument\.cookie\b/i,
+  /\beval\s*\(/i,
+  /\bFunction\s*\(/,
+  /\bimport\s*\(/i,
 ]
 
 const errors = []
@@ -62,11 +89,24 @@ for (const pkg of catalog.packages ?? []) {
   if (typeof pkg.tagline !== 'string' || pkg.tagline.trim().length < 4) fail(`[${label}] missing tagline`)
   if (typeof pkg.description !== 'string' || pkg.description.trim().length < 8) fail(`[${label}] missing description`)
   if (typeof pkg.version !== 'string' || !SEMVER_RE.test(pkg.version)) fail(`[${label}] invalid SemVer version`)
-  if (typeof pkg.iconSvg !== 'string' || !pkg.iconSvg.trim().startsWith('<svg') || !pkg.iconSvg.includes('</svg>')) {
-    fail(`[${label}] every package must include a valid inline SVG icon`)
+  if (
+    typeof pkg.iconSvg !== 'string' ||
+    !pkg.iconSvg.trim().startsWith('<svg') ||
+    !pkg.iconSvg.includes('</svg>') ||
+    pkg.iconSvg.length > 16000 ||
+    FORBIDDEN_SVG_PATTERNS.some(re => re.test(pkg.iconSvg))
+  ) {
+    fail(`[${label}] every package must include a safe inline SVG icon`)
   }
   if (!pkg.author || typeof pkg.author.handle !== 'string' || typeof pkg.author.displayName !== 'string') {
     fail(`[${label}] missing author.handle or author.displayName`)
+  } else if (!OFFICIAL_IDS.has(pkg.id)) {
+    if (pkg.author.official === true || pkg.author.handle.toLowerCase() === 'syntax' || pkg.builtIn === true || pkg.safety?.official === true) {
+      fail(`[${label}] non-allowlisted community package cannot claim official/builtIn status or @syntax handle`)
+    }
+  }
+  if (pkg.packageUrl !== undefined && (typeof pkg.packageUrl !== 'string' || !pkg.packageUrl.startsWith('https://'))) {
+    fail(`[${label}] packageUrl must use https://`)
   }
   if (typeof pkg.touchesCore !== 'boolean') {
     fail(`[${label}] touchesCore must be boolean`)

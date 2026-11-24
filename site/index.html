@@ -350,8 +350,12 @@
       themeBtn.textContent = next === 'dark' ? 'Light mode' : 'Dark mode';
     });
 
+    const FALLBACK_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#252525"/><circle cx="32" cy="32" r="10" fill="#a3a3a3"/></svg>';
     function svgDataUri(svg) {
-      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg.trim());
+      const safe = typeof svg === 'string' && svg.trim().startsWith('<svg') && svg.includes('</svg>') && !/<script|<foreignObject|javascript:|\bon[a-z]+\s*=/i.test(svg)
+        ? svg.trim()
+        : FALLBACK_ICON_SVG;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(safe);
     }
 
     function esc(str) {
