@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "walkthrough-player",
+  "kind": "plugin",
+  "extension": ".syntaxplugin",
+  "name": "Video Walkthroughs",
+  "tagline": "Manim Guided Hints and Full Solution videos with narrated algebra.",
+  "description": "Integrates Video.js and Manim-rendered Guided Hint (zero-spoiler nudge) and Full Solution videos directly into lesson questions, with compact picture-in-picture docking beside Pen Studio.",
+  "version": "1.0.0",
+  "author": {
+    "handle": "syntax",
+    "displayName": "Syntax Official",
+    "official": true,
+    "verified": true
+  },
+  "accentColor": "#ec4899",
+  "tags": [
+    "Video",
+    "Manim",
+    "Hints",
+    "Walkthroughs"
+  ],
+  "touchesCore": true,
+  "coreTouchReason": "Injects the Guided Hint (?) and Full Solution video triggers directly into the core Lesson Player header and question cards.",
+  "builtIn": true,
+  "safety": {
+    "automatedScan": "passed",
+    "sandboxed": true,
+    "networkAccess": "none",
+    "lastChecked": "2026-11-24",
+    "official": true
+  },
+  "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#be185d\"/><circle cx=\"32\" cy=\"32\" r=\"18\" fill=\"#fbcfe8\" fill-opacity=\"0.2\" stroke=\"#ffffff\" stroke-width=\"3\"/><path d=\"M27 23L42 32L27 41V23Z\" fill=\"#ffffff\"/></svg>",
+  "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/walkthrough-player.syntaxplugin"
+}

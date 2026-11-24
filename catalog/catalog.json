@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-24T23:00:00Z",
+  "hubUrl": "https://i-am-drunk.github.io/syntax-community/",
+  "syntaxAppUrl": "https://i-am-drunk.github.io/syntax/",
+  "checksums": {
+    "mpm2d-analytic-geometry": "6e690d42d3ef82395026d9995c364f5f8d5f50736b84e876063d94de3c58af47",
+    "thinking-in-code": "a243a94f311c0ae0aaa33bcbd579193a4a14e7c90aac06311df70b903c16a4f8",
+    "math-graph-engine": "2453fb0408bd0561fc279ab662e2ce18eb69c6c8d5dd80b9d325491a27b11018",
+    "grid-coding-engine": "2a90a17af16b53c757fc91137ca99fd6c209c4d4084f5cd555b4293925818392",
+    "pen-studio": "a1b47107bbfe789b40e87bab4730b0226b7cb53a824eb381370950f4dec83df6",
+    "walkthrough-player": "32cecfe4cb3d5eb98f56ffbf35bcc344cedc9499611407c7b8b220516fb21237",
+    "checkmark-gate": "2c511cda102a05dccc91c4a229c99fae8d118a35a0df1f0ff84c27a9a3d1f610",
+    "floating-windows": "29e0bd352544f60c93fac410168a74c024d06f2b5c8234dcdeec2e7e9c999031",
+    "work-history": "7a9809169c7b6a34c856a45dcb62c87195ec8a9804ad85ffa8f9479f3547bd72",
+    "formula-playbook": "a5b802bc88993dce1ecdbab11a621f9c7c69c5236991c7518a78af5dddbec23e",
+    "unit-circle-lab": "b69a44c54f0543c44c3a225c89c3c3292cade0f77ac68896206b59c2b6edb894",
+    "trig-intuition-101": "014c8cb36f5dff3f28ecfb350063324e17343fe293065e344915e3e7c196c683",
+    "focus-pomodoro-bar": "2ba4a19191bbb1c8445d45923c2e1cdf28ddd245896dfaa424e803a1f0d6376a"
+  },
+  "packages": [
+    {
+      "schemaVersion": 1,
+      "id": "mpm2d-analytic-geometry",
+      "kind": "course",
+      "extension": ".syntaxcourse",
+      "name": "Analytic Geometry (MPM2D)",
+      "tagline": "Slopes, midpoints, distances, triangle lines, and geometric proofs.",
+      "description": "Complete Grade 10 Analytic Geometry unit built around visual intuition, interactive coordinate graphs, 7 Catch-Up rescue mini-lessons, and step-by-step guided video walkthroughs.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#3b82f6",
+      "tags": [
+        "Math",
+        "Grade 10",
+        "MPM2D",
+        "Geometry"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "courseRoute": "mpm2d",
+      "requires": [
+        {
+          "id": "math-graph-engine",
+          "kind": "embedded-plugin",
+          "minVersion": "1.0.0",
+          "name": "Math Graph Engine"
+        }
+      ],
+      "optional": [
+        {
+          "id": "pen-studio",
+          "kind": "plugin",
+          "name": "Pen Studio"
+        },
+        {
+          "id": "walkthrough-player",
+          "kind": "plugin",
+          "name": "Video Walkthroughs"
+        },
+        {
+          "id": "formula-playbook",
+          "kind": "plugin",
+          "name": "Formula Playbook"
+        },
+        {
+          "id": "checkmark-gate",
+          "kind": "plugin",
+          "name": "Checkmark Gate"
+        }
+      ],
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#1d4ed8\"/><path d=\"M12 46L52 18\" stroke=\"#93c5fd\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><path d=\"M16 14V50H52\" stroke=\"#ffffff\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"24\" cy=\"37.6\" r=\"5\" fill=\"#facc15\" stroke=\"#1e3a8a\" stroke-width=\"2.5\"/><circle cx=\"42\" cy=\"25\" r=\"5\" fill=\"#34d399\" stroke=\"#1e3a8a\" stroke-width=\"2.5\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/mpm2d-analytic-geometry.syntaxcourse"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "thinking-in-code",
+      "kind": "course",
+      "extension": ".syntaxcourse",
+      "name": "Thinking in Code",
+      "tagline": "Build real programming intuition with interactive grid puzzles and loops.",
+      "description": "Hands-on computer science foundation covering Writing Programs, Sequencing Commands, Repeating Patterns, and Debugging Programs with live visual execution and step-by-step Why explanations.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#8b5cf6",
+      "tags": [
+        "Computer Science",
+        "Logic",
+        "Beginner"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "courseRoute": "thinking-in-code",
+      "requires": [
+        {
+          "id": "grid-coding-engine",
+          "kind": "embedded-plugin",
+          "minVersion": "1.0.0",
+          "name": "Grid Coding Engine"
+        }
+      ],
+      "optional": [
+        {
+          "id": "work-history",
+          "kind": "plugin",
+          "name": "Work History"
+        }
+      ],
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#6d28d9\"/><rect x=\"14\" y=\"14\" width=\"14\" height=\"14\" rx=\"4\" fill=\"#c4b5fd\"/><rect x=\"36\" y=\"14\" width=\"14\" height=\"14\" rx=\"4\" fill=\"#a78bfa\"/><rect x=\"14\" y=\"36\" width=\"14\" height=\"14\" rx=\"4\" fill=\"#a78bfa\"/><rect x=\"36\" y=\"36\" width=\"14\" height=\"14\" rx=\"4\" fill=\"#34d399\"/><path d=\"M24 21H36M43 28V36\" stroke=\"#ffffff\" stroke-width=\"3.5\" stroke-linecap=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/thinking-in-code.syntaxcourse"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "math-graph-engine",
+      "kind": "embedded-plugin",
+      "extension": ".syntaxembeddedplugin",
+      "name": "Math Graph Engine",
+      "tagline": "Interactive coordinate planes, draggable geometry handles, and math grading.",
+      "description": "Shared course library powering interactive Cartesian graphs, slope and midpoint explorers, stacked fraction typesetting, and algebraic answer grading across math courses.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#10b981",
+      "tags": [
+        "Math",
+        "Graphs",
+        "Library",
+        "Interactive"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "aiUsage": {
+        "summary": "Embed interactive 2D coordinate planes, draggable points, geometric explorations, and math answer grading inside any .syntaxcourse lesson.",
+        "blocks": [
+          "BrilliantGraph",
+          "CompactExploration",
+          "BrilliantMathInput",
+          "MathText"
+        ],
+        "example": "{ \"type\": \"graph\", \"plugin\": \"math-graph-engine\", \"points\": [{ \"id\": \"A\", \"x\": -2, \"y\": 1 }, { \"id\": \"B\", \"x\": 4, \"y\": 5 }], \"segments\": [[\"A\", \"B\"]] }"
+      },
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#047857\"/><path d=\"M12 32H52M32 12V52\" stroke=\"#a7f3d0\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><path d=\"M16 44C24 44 26 20 32 20C38 20 40 44 48 22\" stroke=\"#ffffff\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"32\" cy=\"20\" r=\"4.5\" fill=\"#fbbf24\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/math-graph-engine.syntaxembeddedplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "grid-coding-engine",
+      "kind": "embedded-plugin",
+      "extension": ".syntaxembeddedplugin",
+      "name": "Grid Coding Engine",
+      "tagline": "Visual truck and robot grid puzzles, command blocks, and animated replays.",
+      "description": "Shared course library providing editable command-block puzzles, live grid execution, collision warnings, and step-by-step animated Why explanations for computer science courses.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#06b6d4",
+      "tags": [
+        "Computer Science",
+        "Puzzles",
+        "Library"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "aiUsage": {
+        "summary": "Embed programmable grid maps with draggable command blocks (forward, turn, repeat, deliver) and automatic path grading.",
+        "blocks": [
+          "GridProblem",
+          "RobotBoard",
+          "PracticeExplanation"
+        ],
+        "example": "{ \"type\": \"grid-puzzle\", \"plugin\": \"grid-coding-engine\", \"commands\": [\"forward\", \"left\", \"right\"], \"goal\": [3, 1] }"
+      },
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0e7490\"/><rect x=\"14\" y=\"16\" width=\"36\" height=\"32\" rx=\"8\" stroke=\"#cffafe\" stroke-width=\"3\"/><path d=\"M24 26L30 32L24 38M34 38H42\" stroke=\"#ffffff\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/grid-coding-engine.syntaxembeddedplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "pen-studio",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Pen Studio",
+      "tagline": "Split-screen handwriting canvas with graph, dot, and lined scratch paper.",
+      "description": "Adds a full TLDraw stylus and mouse scratchpad directly beside any lesson problem, with per-question paper styles, automatic stylus detection, and saved blank scratch pages.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#f59e0b",
+      "tags": [
+        "Handwriting",
+        "Stylus",
+        "Scratchpad",
+        "Tools"
+      ],
+      "touchesCore": true,
+      "coreTouchReason": "Splits the core Lesson Player layout into a resizable dual-pane workspace and listens for global stylus input.",
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#b45309\"/><path d=\"M18 46L23 32L41 14L50 23L32 41L18 46Z\" fill=\"#fde68a\" stroke=\"#ffffff\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/><path d=\"M36 19L45 28\" stroke=\"#b45309\" stroke-width=\"2.5\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/pen-studio.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "walkthrough-player",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Video Walkthroughs",
+      "tagline": "Manim Guided Hints and Full Solution videos with narrated algebra.",
+      "description": "Integrates Video.js and Manim-rendered Guided Hint (zero-spoiler nudge) and Full Solution videos directly into lesson questions, with compact picture-in-picture docking beside Pen Studio.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#ec4899",
+      "tags": [
+        "Video",
+        "Manim",
+        "Hints",
+        "Walkthroughs"
+      ],
+      "touchesCore": true,
+      "coreTouchReason": "Injects the Guided Hint (?) and Full Solution video triggers directly into the core Lesson Player header and question cards.",
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#be185d\"/><circle cx=\"32\" cy=\"32\" r=\"18\" fill=\"#fbcfe8\" fill-opacity=\"0.2\" stroke=\"#ffffff\" stroke-width=\"3\"/><path d=\"M27 23L42 32L27 41V23Z\" fill=\"#ffffff\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/walkthrough-player.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "checkmark-gate",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Checkmark Gate",
+      "tagline": "Draw a quick checkmark anywhere on a lesson to submit your answer.",
+      "description": "Adds a smooth single-stroke dotted checkmark gesture recognizer over the lesson pane so stylus and touch users can check answers naturally without hunting for buttons.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#22c55e",
+      "tags": [
+        "Gestures",
+        "Stylus",
+        "Productivity"
+      ],
+      "touchesCore": true,
+      "coreTouchReason": "Attaches a gesture recognition layer directly over the core Lesson Player viewport.",
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#15803d\"/><path d=\"M18 33L28 43L47 22\" stroke=\"#ffffff\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/checkmark-gate.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "floating-windows",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Floating Windows",
+      "tagline": "Draggable 144Hz momentum study windows for Playbook and Hints.",
+      "description": "Upgrades Syntax reference modals into movable, resizable WinBox floating windows with toggleable 144Hz inertia glide so you can keep formulas open beside your work.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#6366f1",
+      "tags": [
+        "Windows",
+        "Workspace",
+        "UI"
+      ],
+      "touchesCore": true,
+      "coreTouchReason": "Replaces standard core modal dialogs with draggable WinBox floating window frames.",
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#4338ca\"/><rect x=\"13\" y=\"16\" width=\"28\" height=\"22\" rx=\"4\" stroke=\"#c7d2fe\" stroke-width=\"2.5\"/><rect x=\"23\" y=\"26\" width=\"28\" height=\"22\" rx=\"4\" fill=\"#4338ca\" stroke=\"#ffffff\" stroke-width=\"3\"/><path d=\"M23 33H51\" stroke=\"#ffffff\" stroke-width=\"2.5\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/floating-windows.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "work-history",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Work History",
+      "tagline": "Browse and jump back to every past answer and scratchpad snapshot.",
+      "description": "Saves a clean timeline of your worked answers and scratchpad sketches so you can review mistakes before a test and jump straight back into any question.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#14b8a6",
+      "tags": [
+        "History",
+        "Review",
+        "Notes"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0f766e\"/><circle cx=\"32\" cy=\"32\" r=\"16\" stroke=\"#ffffff\" stroke-width=\"3.2\"/><path d=\"M32 23V33L39 37\" stroke=\"#99f6e4\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/work-history.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "formula-playbook",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Formula Playbook",
+      "tagline": "Press F anytime for a clean, searchable course formula reference.",
+      "description": "Provides an instant keyboard-accessible Playbook sheet with slopes, midpoints, distances, circle equations, and proof checklists that never interrupt your lesson state.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "syntax",
+        "displayName": "Syntax Official",
+        "official": true,
+        "verified": true
+      },
+      "accentColor": "#f97316",
+      "tags": [
+        "Reference",
+        "Math",
+        "Shortcuts"
+      ],
+      "touchesCore": false,
+      "builtIn": true,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": true
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#c2410c\"/><path d=\"M18 16H42C44.2 16 46 17.8 46 20V48H22C19.8 48 18 46.2 18 44V16Z\" stroke=\"#ffffff\" stroke-width=\"3\"/><path d=\"M25 25H39M25 32H35M18 42H46\" stroke=\"#fed7aa\" stroke-width=\"2.8\" stroke-linecap=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/formula-playbook.syntaxplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "unit-circle-lab",
+      "kind": "embedded-plugin",
+      "extension": ".syntaxembeddedplugin",
+      "name": "Unit Circle Lab",
+      "tagline": "Sandboxed interactive unit circle widget showing live sine and cosine projections.",
+      "description": "A zero-dependency sandboxed trigonometry library that any .syntaxcourse can require to let learners drag angles around the unit circle and read exact sine and cosine legs.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "community-math",
+        "displayName": "Community Math Lab",
+        "official": false,
+        "verified": true
+      },
+      "accentColor": "#0ea5e9",
+      "tags": [
+        "Trigonometry",
+        "Math",
+        "Interactive",
+        "Community"
+      ],
+      "touchesCore": false,
+      "aiUsage": {
+        "summary": "Embed an interactive unit circle with angle slider and live sine/cosine triangle projections inside any trigonometry or physics course.",
+        "blocks": [
+          "UnitCircleExplorer"
+        ],
+        "example": "{ \"type\": \"embedded-widget\", \"plugin\": \"unit-circle-lab\", \"initialDegrees\": 45 }"
+      },
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": false
+      },
+      "sandboxHtml": "<div style=\"display:flex;flex-direction:column;gap:14px;\">\n  <div style=\"display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;\">\n    <strong style=\"font-size:15px;\">Interactive Unit Circle Explorer</strong>\n    <span id=\"readout\" style=\"font-family:monospace;font-size:13px;color:var(--sx-muted);\">theta = 45 deg | cos = 0.71 | sin = 0.71</span>\n  </div>\n  <canvas id=\"uc\" width=\"320\" height=\"220\" style=\"width:100%;max-width:340px;align-self:center;border:1px solid var(--sx-border);border-radius:10px;\"></canvas>\n  <label style=\"display:flex;align-items:center;gap:10px;font-size:13px;color:var(--sx-muted);\">\n    <span>Angle:</span>\n    <input id=\"deg\" type=\"range\" min=\"0\" max=\"360\" value=\"45\" style=\"flex:1;\" />\n    <strong id=\"degVal\" style=\"color:var(--sx-fg);min-width:44px;text-align:right;\">45 deg</strong>\n  </label>\n</div>\n<script>\n(function(){\n  var c = document.getElementById('uc');\n  var ctx = c.getContext('2d');\n  var slider = document.getElementById('deg');\n  var degVal = document.getElementById('degVal');\n  var readout = document.getElementById('readout');\n  function draw() {\n    var d = Number(slider.value);\n    var r = d * Math.PI / 180;\n    var cx = 160, cy = 110, rad = 82;\n    var x = cx + Math.cos(r) * rad;\n    var y = cy - Math.sin(r) * rad;\n    ctx.clearRect(0, 0, c.width, c.height);\n    ctx.strokeStyle = '#555';\n    ctx.lineWidth = 1;\n    ctx.beginPath(); ctx.moveTo(20, cy); ctx.lineTo(300, cy); ctx.moveTo(cx, 14); ctx.lineTo(cx, 206); ctx.stroke();\n    ctx.strokeStyle = '#888'; ctx.lineWidth = 2;\n    ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();\n    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2.5;\n    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, cy); ctx.stroke();\n    ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2.5;\n    ctx.beginPath(); ctx.moveTo(x, cy); ctx.lineTo(x, y); ctx.stroke();\n    ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2.5;\n    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke();\n    ctx.fillStyle = '#f59e0b';\n    ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();\n    degVal.textContent = d + ' deg';\n    readout.textContent = 'cos(' + d + ') = ' + Math.cos(r).toFixed(2) + ' | sin(' + d + ') = ' + Math.sin(r).toFixed(2);\n  }\n  slider.addEventListener('input', draw);\n  draw();\n})();\n</script>",
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0369a1\"/><circle cx=\"32\" cy=\"32\" r=\"18\" stroke=\"#bae6fd\" stroke-width=\"3\"/><path d=\"M32 32L45 19V32H32Z\" fill=\"#38bdf8\" fill-opacity=\"0.35\" stroke=\"#ffffff\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/><circle cx=\"45\" cy=\"19\" r=\"4\" fill=\"#fbbf24\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/unit-circle-lab.syntaxembeddedplugin"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "trig-intuition-101",
+      "kind": "course",
+      "extension": ".syntaxcourse",
+      "name": "Trigonometry Intuition",
+      "tagline": "See sine and cosine as coordinates on a circle, not memorized ratios.",
+      "description": "A community starter course demonstrating how a .syntaxcourse depends on a reusable .syntaxembeddedplugin (Unit Circle Lab) that installs automatically in one click.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "community-math",
+        "displayName": "Community Math Lab",
+        "official": false,
+        "verified": true
+      },
+      "accentColor": "#38bdf8",
+      "tags": [
+        "Trigonometry",
+        "Math",
+        "Community",
+        "Starter"
+      ],
+      "touchesCore": false,
+      "courseRoute": "custom",
+      "requires": [
+        {
+          "id": "unit-circle-lab",
+          "kind": "embedded-plugin",
+          "minVersion": "1.0.0",
+          "name": "Unit Circle Lab"
+        }
+      ],
+      "customCourse": {
+        "subtitle": "Interactive coordinates on the unit circle",
+        "units": [
+          {
+            "title": "Angles as Coordinates",
+            "lessons": [
+              {
+                "id": "trig-l1",
+                "title": "Cosine is Horizontal, Sine is Vertical",
+                "summary": "Drag the Unit Circle Lab slider above to 0 deg, 90 deg, and 180 deg and watch the blue (x) and green (y) segments.",
+                "prompt": "At 90 degrees (straight up on the unit circle), what are cos(90) and sin(90)?",
+                "choices": [
+                  "cos = 0, sin = 1",
+                  "cos = 1, sin = 0",
+                  "cos = -1, sin = 0",
+                  "cos = 0.71, sin = 0.71"
+                ],
+                "answerIndex": 0,
+                "explanation": "At 90 degrees the point sits at (0, 1) on the unit circle, so horizontal cosine is 0 and vertical sine is 1."
+              },
+              {
+                "id": "trig-l2",
+                "title": "Why 45 Degrees Makes Equal Legs",
+                "summary": "Set the angle slider to 45 degrees. Notice that the right triangle inside the circle is isosceles.",
+                "prompt": "At 45 degrees, how do cos(45) and sin(45) compare?",
+                "choices": [
+                  "cos(45) is larger",
+                  "sin(45) is larger",
+                  "They are equal (about 0.71)",
+                  "Both are 0.50"
+                ],
+                "answerIndex": 2,
+                "explanation": "A 45-45-90 triangle has two equal legs, each equal to sqrt(2)/2, which is approximately 0.71."
+              }
+            ]
+          }
+        ]
+      },
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": false
+      },
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0284c7\"/><path d=\"M12 40C18 16 26 16 32 32C38 48 46 48 52 24\" stroke=\"#ffffff\" stroke-width=\"3.8\" stroke-linecap=\"round\"/><circle cx=\"32\" cy=\"32\" r=\"4.5\" fill=\"#fbbf24\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/trig-intuition-101.syntaxcourse"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "focus-pomodoro-bar",
+      "kind": "plugin",
+      "extension": ".syntaxplugin",
+      "name": "Focus Timer",
+      "tagline": "Sandboxed 25-minute study timer with zero core access.",
+      "description": "A clean, calm Pomodoro timer that runs entirely inside an isolated iframe sandbox with zero network access and zero core hooks.",
+      "version": "1.0.0",
+      "author": {
+        "handle": "calm-tools",
+        "displayName": "Calm Study Tools",
+        "official": false,
+        "verified": true
+      },
+      "accentColor": "#ef4444",
+      "tags": [
+        "Productivity",
+        "Timer",
+        "Community"
+      ],
+      "touchesCore": false,
+      "safety": {
+        "automatedScan": "passed",
+        "sandboxed": true,
+        "networkAccess": "none",
+        "lastChecked": "2026-11-24",
+        "official": false
+      },
+      "sandboxHtml": "<div style=\"display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;\">\n  <div>\n    <div style=\"font-size:12px;color:var(--sx-muted);text-transform:uppercase;letter-spacing:0.06em;\">Focus Timer</div>\n    <div id=\"clock\" style=\"font-size:34px;font-weight:800;font-family:monospace;\">25:00</div>\n  </div>\n  <div style=\"display:flex;gap:8px;\">\n    <button id=\"toggle\" style=\"padding:8px 16px;border-radius:8px;border:1px solid var(--sx-border);background:var(--sx-fg);color:var(--sx-bg);font-weight:700;cursor:pointer;\">Start</button>\n    <button id=\"reset\" style=\"padding:8px 14px;border-radius:8px;border:1px solid var(--sx-border);background:transparent;color:var(--sx-fg);font-weight:600;cursor:pointer;\">Reset</button>\n  </div>\n</div>\n<script>\n(function(){\n  var secs = 25 * 60, timer = null;\n  var clock = document.getElementById('clock');\n  var toggle = document.getElementById('toggle');\n  var reset = document.getElementById('reset');\n  function render() {\n    var m = String(Math.floor(secs / 60)).padStart(2, '0');\n    var s = String(secs % 60).padStart(2, '0');\n    clock.textContent = m + ':' + s;\n  }\n  toggle.addEventListener('click', function() {\n    if (timer) { clearInterval(timer); timer = null; toggle.textContent = 'Start'; return; }\n    toggle.textContent = 'Pause';\n    timer = setInterval(function() {\n      if (secs > 0) { secs--; render(); }\n      else { clearInterval(timer); timer = null; toggle.textContent = 'Done'; }\n    }, 1000);\n  });\n  reset.addEventListener('click', function() {\n    if (timer) { clearInterval(timer); timer = null; }\n    secs = 25 * 60; toggle.textContent = 'Start'; render();\n  });\n  render();\n})();\n</script>",
+      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#b91c1c\"/><circle cx=\"32\" cy=\"34\" r=\"16\" stroke=\"#ffffff\" stroke-width=\"3.2\"/><path d=\"M26 14H38M32 34V24M32 34L39 38\" stroke=\"#fecaca\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg>",
+      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/focus-pomodoro-bar.syntaxplugin"
+    }
+  ]
+}

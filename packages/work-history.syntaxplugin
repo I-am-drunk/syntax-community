@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "work-history",
+  "kind": "plugin",
+  "extension": ".syntaxplugin",
+  "name": "Work History",
+  "tagline": "Browse and jump back to every past answer and scratchpad snapshot.",
+  "description": "Saves a clean timeline of your worked answers and scratchpad sketches so you can review mistakes before a test and jump straight back into any question.",
+  "version": "1.0.0",
+  "author": {
+    "handle": "syntax",
+    "displayName": "Syntax Official",
+    "official": true,
+    "verified": true
+  },
+  "accentColor": "#14b8a6",
+  "tags": [
+    "History",
+    "Review",
+    "Notes"
+  ],
+  "touchesCore": false,
+  "builtIn": true,
+  "safety": {
+    "automatedScan": "passed",
+    "sandboxed": true,
+    "networkAccess": "none",
+    "lastChecked": "2026-11-24",
+    "official": true
+  },
+  "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0f766e\"/><circle cx=\"32\" cy=\"32\" r=\"16\" stroke=\"#ffffff\" stroke-width=\"3.2\"/><path d=\"M32 23V33L39 37\" stroke=\"#99f6e4\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+  "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/work-history.syntaxplugin"
+}

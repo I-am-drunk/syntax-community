@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syntax Community Hub</title>
+  <meta name="description" content="Discover verified .syntaxcourse, .syntaxplugin, and .syntaxembeddedplugin packages for Syntax. One-click install, zero-cost hosting." />
+  <style>
+    :root {
+      --bg: #f8f8f8;
+      --surface: #ffffff;
+      --surface-2: #f2f2f2;
+      --hover: #eaeaea;
+      --border: #e4e4e4;
+      --border-strong: #d2d2d2;
+      --fg: #141414;
+      --muted: #5c5c5c;
+      --subtle: #787878;
+      --primary: #141414;
+      --primary-fg: #ffffff;
+      --success: #16a34a;
+      --success-bg: rgba(22, 163, 74, 0.12);
+      --warn: #b45309;
+      --warn-bg: rgba(245, 158, 11, 0.14);
+      --warn-border: rgba(217, 119, 6, 0.45);
+    }
+    :root[data-theme="dark"] {
+      --bg: #141414;
+      --surface: #1c1c1c;
+      --surface-2: #171717;
+      --hover: #252525;
+      --border: #2a2a2a;
+      --border-strong: #3a3a3a;
+      --fg: #f3f3f3;
+      --muted: #a3a3a3;
+      --subtle: #7a7a7a;
+      --primary: #f3f3f3;
+      --primary-fg: #141414;
+      --success: #22c55e;
+      --success-bg: rgba(34, 197, 94, 0.14);
+      --warn: #fbbf24;
+      --warn-bg: rgba(245, 158, 11, 0.14);
+      --warn-border: rgba(251, 191, 36, 0.42);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 62px;
+      padding: 0 24px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    .brand-tag {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+    }
+    .actions { display: flex; align-items: center; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--hover); border-color: var(--border-strong); }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: transparent; }
+    .btn-primary:hover { opacity: 0.9; background: var(--primary); }
+    .btn-sm { height: 32px; padding: 0 11px; font-size: 12.5px; border-radius: 8px; }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+    .hero { margin-bottom: 26px; }
+    .hero h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
+    .hero p { margin: 8px 0 0; font-size: 15.5px; color: var(--muted); max-width: 680px; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .tabs {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 6px 13px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab.is-active { background: var(--surface); color: var(--fg); }
+    .search-wrap { position: relative; flex: 1; min-width: 240px; max-width: 360px; }
+    .search-input {
+      width: 100%;
+      height: 38px;
+      padding: 0 36px 0 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      font-size: 14px;
+    }
+    .kbd {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 1px 6px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--subtle);
+      font-size: 11px;
+      font-family: ui-monospace, monospace;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card:hover { border-color: var(--border-strong); }
+    .card-top { display: flex; gap: 13px; align-items: flex-start; }
+    .icon-box { width: 48px; height: 48px; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
+    .card-title { margin: 0; font-size: 16px; font-weight: 700; }
+    .meta { font-size: 12.5px; color: var(--subtle); margin-top: 2px; }
+    .tagline { margin: 0; font-size: 14px; color: var(--muted); }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--muted);
+    }
+    .pill-mono { font-family: ui-monospace, monospace; font-size: 11px; }
+    .pill-official { background: var(--success-bg); color: var(--success); border-color: transparent; }
+    .core-warn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: var(--warn);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .core-banner {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+    }
+    .core-banner strong { color: var(--warn); display: block; font-size: 13.5px; }
+    .core-banner p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+    .card-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.is-open { display: flex; }
+    .modal {
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .scorecard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+    .scorecard span { display: block; font-size: 11px; color: var(--subtle); }
+    .scorecard strong { display: block; font-size: 13px; margin-top: 2px; }
+    pre {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      header { padding: 0 14px; }
+      main { padding: 24px 14px 60px; }
+      .scorecard { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">
+      <span>Syntax</span>
+      <span class="brand-tag">Community Hub</span>
+    </a>
+    <div class="actions">
+      <button id="themeBtn" type="button" class="btn btn-sm">Light mode</button>
+      <a class="btn btn-sm" href="https://github.com/I-am-drunk/syntax-community" target="_blank" rel="noreferrer">Submit Package</a>
+      <a class="btn btn-sm btn-primary" href="https://i-am-drunk.github.io/syntax/">Open Syntax App</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Syntax Community Hub</h1>
+      <p>
+        Explore verified courses (<code>.syntaxcourse</code>), app plugins (<code>.syntaxplugin</code>),
+        and reusable embedded libraries (<code>.syntaxembeddedplugin</code>). Click any package to open
+        and install it straight inside Syntax.
+      </p>
+    </section>
+
+    <div class="toolbar">
+      <div class="tabs" id="kindTabs" role="tablist">
+        <button class="tab is-active" data-kind="all" type="button">All</button>
+        <button class="tab" data-kind="course" type="button">Courses</button>
+        <button class="tab" data-kind="plugin" type="button">App Plugins</button>
+        <button class="tab" data-kind="embedded-plugin" type="button">Embedded Plugins</button>
+      </div>
+      <div class="search-wrap">
+        <input id="searchInput" class="search-input" type="search" placeholder="Search courses, plugins, tags..." aria-label="Search packages" />
+        <span class="kbd">/</span>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button id="officialBtn" type="button" class="btn btn-sm">Official only</button>
+      <button id="coreBtn" type="button" class="btn btn-sm">Touches core only</button>
+      <span id="countPill" class="pill" style="margin-left:auto;">Loading catalog...</span>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div id="modalContent" class="modal"></div>
+  </div>
+
+  <script>
+    const SYNTAX_APP_URL = 'https://i-am-drunk.github.io/syntax/';
+    const KIND_LABELS = { course: 'Course', plugin: 'App Plugin', 'embedded-plugin': 'Embedded Plugin' };
+
+    let allPackages = [];
+    let state = { kind: 'all', official: false, touchesCore: false, q: '' };
+
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('syntax-hub-theme') || 'dark';
+    root.dataset.theme = savedTheme;
+    themeBtn.textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
+
+    themeBtn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('syntax-hub-theme', next);
+      themeBtn.textContent = next === 'dark' ? 'Light mode' : 'Dark mode';
+    });
+
+    function svgDataUri(svg) {
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg.trim());
+    }
+
+    function esc(str) {
+      return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function openDetail(pkg) {
+      const backdrop = document.getElementById('modalBackdrop');
+      const box = document.getElementById('modalContent');
+      const deepLink = SYNTAX_APP_URL + '?install=' + encodeURIComponent(pkg.id);
+      const fileHref = './packages/' + encodeURIComponent(pkg.id + pkg.extension);
+
+      box.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div class="card-top">
+            <img class="icon-box" style="width:58px;height:58px;" src="${svgDataUri(pkg.iconSvg)}" alt="" />
+            <div>
+              <h2 style="margin:0;font-size:20px;">${esc(pkg.name)}</h2>
+              <div class="meta">by @${esc(pkg.author.handle)} · v${esc(pkg.version)} · <code>${esc(pkg.extension)}</code></div>
+              <div class="pills" style="margin-top:6px;">
+                <span class="pill">${esc(KIND_LABELS[pkg.kind] || pkg.kind)}</span>
+                ${pkg.author.official ? '<span class="pill pill-official">Official</span>' : ''}
+              </div>
+            </div>
+          </div>
+          <button id="closeModalBtn" type="button" class="btn btn-sm">Close</button>
+        </div>
+        <p class="tagline">${esc(pkg.description)}</p>
+        ${pkg.touchesCore ? `
+          <div class="core-banner">
+            <strong>This plugin touches core.</strong>
+            <p>${esc(pkg.coreTouchReason || 'Integrates directly into core Syntax surfaces.')}</p>
+          </div>
+        ` : ''}
+        <div class="scorecard">
+          <div><span>Automated Scan</span><strong>${esc(pkg.safety.automatedScan)}</strong></div>
+          <div><span>Isolation</span><strong>${pkg.touchesCore ? 'Core Integration' : 'Sandboxed'}</strong></div>
+          <div><span>Network Access</span><strong>${esc(pkg.safety.networkAccess)}</strong></div>
+        </div>
+        ${pkg.requires && pkg.requires.length ? `
+          <div class="pill" style="border-radius:10px;padding:8px 12px;">
+            Auto-installs required embedded plugin: ${esc(pkg.requires.map(r => r.name).join(', '))}
+          </div>
+        ` : ''}
+        ${pkg.aiUsage ? `
+          <div style="display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border);">
+            <strong style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--subtle);">AI Usage Card (MCP Discovery)</strong>
+            <p class="tagline" style="font-size:13px;">${esc(pkg.aiUsage.summary)}</p>
+            <div class="pills">${pkg.aiUsage.blocks.map(b => `<span class="pill pill-mono">${esc(b)}</span>`).join('')}</div>
+            <pre>${esc(pkg.aiUsage.example)}</pre>
+          </div>
+        ` : ''}
+        <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:4px;">
+          <a class="btn" href="${fileHref}" download>Download ${esc(pkg.extension)}</a>
+          <a class="btn btn-primary" href="${deepLink}">Open &amp; Install in Syntax</a>
+        </div>
+      `;
+      backdrop.classList.add('is-open');
+      document.getElementById('closeModalBtn').addEventListener('click', () => backdrop.classList.remove('is-open'));
+    }
+
+    document.getElementById('modalBackdrop').addEventListener('click', e => {
+      if (e.target.id === 'modalBackdrop') e.target.classList.remove('is-open');
+    });
+
+    function render() {
+      const q = state.q.trim().toLowerCase();
+      const filtered = allPackages.filter(pkg => {
+        if (state.kind !== 'all' && pkg.kind !== state.kind) return false;
+        if (state.official && !pkg.author.official) return false;
+        if (state.touchesCore && !pkg.touchesCore) return false;
+        if (!q) return true;
+        return (
+          pkg.name.toLowerCase().includes(q) ||
+          pkg.tagline.toLowerCase().includes(q) ||
+          pkg.id.toLowerCase().includes(q) ||
+          pkg.extension.toLowerCase().includes(q) ||
+          (pkg.tags || []).some(t => t.toLowerCase().includes(q)) ||
+          pkg.author.handle.toLowerCase().includes(q)
+        );
+      });
+
+      document.getElementById('countPill').textContent = `${filtered.length} ${filtered.length === 1 ? 'package' : 'packages'}`;
+      const grid = document.getElementById('grid');
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="card"><p class="tagline">No packages match your current filter.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(pkg => {
+        const deepLink = SYNTAX_APP_URL + '?install=' + encodeURIComponent(pkg.id);
+        return `
+          <article class="card">
+            <div class="card-top">
+              <img class="icon-box" src="${svgDataUri(pkg.iconSvg)}" alt="" />
+              <div style="min-width:0;flex:1;">
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <h2 class="card-title">${esc(pkg.name)}</h2>
+                  ${pkg.author.official ? '<span class="pill pill-official">Official</span>' : ''}
+                </div>
+                <div class="meta">@${esc(pkg.author.handle)} · v${esc(pkg.version)}</div>
+              </div>
+            </div>
+            <p class="tagline">${esc(pkg.tagline)}</p>
+            <div class="pills">
+              <span class="pill">${esc(KIND_LABELS[pkg.kind] || pkg.kind)}</span>
+              <span class="pill pill-mono">${esc(pkg.extension)}</span>
+            </div>
+            ${pkg.touchesCore ? `<span class="core-warn">⚠ This plugin touches core.</span>` : ''}
+            <div class="card-footer">
+              <button type="button" class="btn btn-sm" data-inspect="${esc(pkg.id)}">Details</button>
+              <a class="btn btn-sm btn-primary" href="${deepLink}">Open in Syntax</a>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('[data-inspect]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const pkg = allPackages.find(p => p.id === btn.dataset.inspect);
+          if (pkg) openDetail(pkg);
+        });
+      });
+    }
+
+    document.getElementById('kindTabs').addEventListener('click', e => {
+      const btn = e.target.closest('[data-kind]');
+      if (!btn) return;
+      state.kind = btn.dataset.kind;
+      document.querySelectorAll('#kindTabs .tab').forEach(t => t.classList.toggle('is-active', t === btn));
+      render();
+    });
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => { state.q = searchInput.value; render(); });
+    window.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== searchInput && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (e.key === 'Escape') {
+        document.getElementById('modalBackdrop').classList.remove('is-open');
+      }
+    });
+
+    document.getElementById('officialBtn').addEventListener('click', e => {
+      state.official = !state.official;
+      e.currentTarget.classList.toggle('btn-primary', state.official);
+      render();
+    });
+    document.getElementById('coreBtn').addEventListener('click', e => {
+      state.touchesCore = !state.touchesCore;
+      e.currentTarget.classList.toggle('btn-primary', state.touchesCore);
+      render();
+    });
+
+    fetch('./catalog/catalog.json', { cache: 'no-cache' })
+      .then(r => r.json())
+      .then(data => {
+        allPackages = Array.isArray(data.packages) ? data.packages : [];
+        render();
+      })
+      .catch(() => {
+        document.getElementById('countPill').textContent = 'Failed to load catalog';
+      });
+  </script>
+</body>
+</html>
