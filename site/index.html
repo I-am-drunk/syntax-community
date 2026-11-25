@@ -1,239 +1,326 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Syntax Community Hub</title>
-  <meta name="description" content="Discover verified .syntaxcourse, .syntaxplugin, and .syntaxembeddedplugin packages for Syntax. One-click install, zero-cost hosting." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syntax Community</title>
   <style>
     :root {
-      --bg: #f8f8f8;
+      --bg: #ffffff;
       --surface: #ffffff;
-      --surface-2: #f2f2f2;
-      --hover: #eaeaea;
-      --border: #e4e4e4;
-      --border-strong: #d2d2d2;
-      --fg: #141414;
-      --muted: #5c5c5c;
-      --subtle: #787878;
-      --primary: #141414;
-      --primary-fg: #ffffff;
-      --success: #16a34a;
-      --success-bg: rgba(22, 163, 74, 0.12);
-      --warn: #b45309;
-      --warn-bg: rgba(245, 158, 11, 0.14);
-      --warn-border: rgba(217, 119, 6, 0.45);
+      --surface-2: #f6f6f6;
+      --border: rgba(0, 0, 0, 0.1);
+      --border-hover: rgba(0, 0, 0, 0.24);
+      --text: #141414;
+      --muted: rgba(0, 0, 0, 0.58);
+      --subtle: rgba(0, 0, 0, 0.4);
+      --accent: #456dff;
+      --accent-shadow: #3358e6;
+      --warn: #d97706;
+      --warn-bg: rgba(245, 158, 11, 0.08);
+      --warn-border: rgba(245, 158, 11, 0.32);
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     }
-    :root[data-theme="dark"] {
+    :root[data-theme='dark'] {
       --bg: #141414;
-      --surface: #1c1c1c;
-      --surface-2: #171717;
-      --hover: #252525;
-      --border: #2a2a2a;
-      --border-strong: #3a3a3a;
-      --fg: #f3f3f3;
-      --muted: #a3a3a3;
-      --subtle: #7a7a7a;
-      --primary: #f3f3f3;
-      --primary-fg: #141414;
-      --success: #22c55e;
-      --success-bg: rgba(34, 197, 94, 0.14);
-      --warn: #fbbf24;
-      --warn-bg: rgba(245, 158, 11, 0.14);
-      --warn-border: rgba(251, 191, 36, 0.42);
+      --surface: #1a1a1a;
+      --surface-2: #222222;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-hover: rgba(255, 255, 255, 0.28);
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.62);
+      --subtle: rgba(255, 255, 255, 0.4);
+      --accent: #456dff;
+      --accent-shadow: #3358e6;
+      --warn: #f59e0b;
+      --warn-bg: rgba(245, 158, 11, 0.1);
+      --warn-border: rgba(245, 158, 11, 0.34);
+      --shadow: 0 20px 56px rgba(0, 0, 0, 0.65);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-      line-height: 1.5;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; background: transparent; border: 0; }
+
+    /* Sticky Brilliant-calm Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      height: 62px;
-      padding: 0 24px;
-      background: var(--surface-2);
-      border-bottom: 1px solid var(--border);
-      display: flex;
+      z-index: 40;
+      height: 64px;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 440px) auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .brand {
-      display: flex;
-      align-items: center;
+      display: inline-flex;
+      align-items: baseline;
       gap: 10px;
+    }
+    .brand-wordmark {
+      font-size: 26px;
       font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-      color: var(--fg);
-      text-decoration: none;
+      letter-spacing: -0.055em;
+      line-height: 1;
     }
-    .brand-tag {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
+    .brand-sub {
+      font-size: 14px;
+      font-weight: 500;
       color: var(--muted);
     }
-    .actions { display: flex; align-items: center; gap: 8px; }
-    .btn {
+
+    /* Raycast-style Search Input */
+    .search-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--subtle);
+      pointer-events: none;
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      height: 36px;
-      padding: 0 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--fg);
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
     }
-    .btn:hover { background: var(--hover); border-color: var(--border-strong); }
-    .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: transparent; }
-    .btn-primary:hover { opacity: 0.9; background: var(--primary); }
-    .btn-sm { height: 32px; padding: 0 11px; font-size: 12.5px; border-radius: 8px; }
-    main {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 36px 24px 80px;
-    }
-    .hero { margin-bottom: 26px; }
-    .hero h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
-    .hero p { margin: 8px 0 0; font-size: 15.5px; color: var(--muted); max-width: 680px; }
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .tabs {
-      display: inline-flex;
-      padding: 4px;
-      border-radius: 12px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .tab {
-      padding: 6px 13px;
-      border-radius: 8px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-size: 13.5px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .tab.is-active { background: var(--surface); color: var(--fg); }
-    .search-wrap { position: relative; flex: 1; min-width: 240px; max-width: 360px; }
     .search-input {
       width: 100%;
       height: 38px;
-      padding: 0 36px 0 13px;
-      border-radius: 10px;
+      padding: 0 36px 0 36px;
+      border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--fg);
+      background: var(--surface-2);
+      color: var(--text);
       font-size: 14px;
+      outline: none;
+      transition: border-color 120ms ease, background-color 120ms ease;
     }
+    .search-input:focus {
+      border-color: var(--border-hover);
+      background: var(--surface);
+    }
+    .search-input::placeholder { color: var(--subtle); }
     .kbd {
       position: absolute;
-      right: 10px;
+      right: 11px;
       top: 50%;
       transform: translateY(-50%);
-      padding: 1px 6px;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--subtle);
       font-size: 11px;
-      font-family: ui-monospace, monospace;
-    }
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .card:hover { border-color: var(--border-strong); }
-    .card-top { display: flex; gap: 13px; align-items: flex-start; }
-    .icon-box { width: 48px; height: 48px; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
-    .card-title { margin: 0; font-size: 16px; font-weight: 700; }
-    .meta { font-size: 12.5px; color: var(--subtle); margin-top: 2px; }
-    .tagline { margin: 0; font-size: 14px; color: var(--muted); }
-    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-size: 11.5px;
       font-weight: 600;
+      color: var(--subtle);
       border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--muted);
+      border-radius: 5px;
+      padding: 1px 6px;
+      pointer-events: none;
     }
-    .pill-mono { font-family: ui-monospace, monospace; font-size: 11px; }
-    .pill-official { background: var(--success-bg); color: var(--success); border-color: transparent; }
-    .core-warn {
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: 8px;
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
-      color: var(--warn);
-      font-size: 12px;
-      font-weight: 700;
+      justify-content: center;
+      color: var(--muted);
+      transition: background-color 120ms ease, color 120ms ease;
     }
-    .core-banner {
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: var(--warn-bg);
-      border: 1px solid var(--warn-border);
+    .icon-btn:hover {
+      background: var(--surface-2);
+      color: var(--text);
     }
-    .core-banner strong { color: var(--warn); display: block; font-size: 13.5px; }
-    .core-banner p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
-    .card-footer {
-      margin-top: auto;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
+    .open-app-btn {
+      display: inline-flex;
+      align-items: center;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color 120ms ease, border-color 120ms ease;
+    }
+    .open-app-btn:hover {
+      background: var(--surface-2);
+      border-color: var(--border-hover);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 28px 80px;
+    }
+
+    /* Brilliant Underline Tabs */
+    .tabs-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      gap: 16px;
     }
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .tab {
+      position: relative;
+      height: 44px;
+      padding: 0 2px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 120ms ease;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.is-active { color: var(--text); }
+    .tab.is-active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2.5px;
+      border-radius: 2px 2px 0 0;
+      background: var(--text);
+    }
+    .count-label {
+      font-size: 13px;
+      color: var(--subtle);
+      white-space: nowrap;
+    }
+
+    /* Raycast-Store-inspired 3-column Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      text-align: left;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 140ms ease, transform 140ms ease, background-color 140ms ease;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      flex-shrink: 0;
+      display: block;
+    }
+    .card-head-text {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .warn-icon {
+      display: inline-flex;
+      color: var(--warn);
+      flex-shrink: 0;
+    }
+    .card-author {
+      font-size: 12px;
+      color: var(--subtle);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .official-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .card-tagline {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-foot {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--subtle);
+      padding-top: 2px;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Raycast / Obsidian Detail Sheet */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      z-index: 80;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(4px);
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.58);
+      backdrop-filter: blur(5px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -242,31 +329,153 @@
     .modal-backdrop.is-open { display: flex; }
     .modal {
       width: 100%;
-      max-width: 580px;
-      max-height: 90vh;
+      max-width: 540px;
+      max-height: 88vh;
       overflow-y: auto;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 24px;
+      box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 18px;
     }
-    .scorecard {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      padding: 12px;
-      border-radius: 12px;
-      background: var(--surface-2);
+    .modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .modal-identity {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+    .modal-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
       border: 1px solid var(--border);
+      background: var(--surface-2);
+      flex-shrink: 0;
     }
-    .scorecard span { display: block; font-size: 11px; color: var(--subtle); }
-    .scorecard strong { display: block; font-size: 13px; margin-top: 2px; }
-    pre {
+    .modal-title {
       margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .modal-meta {
+      margin-top: 3px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .modal-close:hover {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    /* Prominent "Add to Syntax" CTA Bar */
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .add-btn {
+      flex: 1;
+      min-width: 180px;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 3px 0 var(--accent-shadow);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: filter 120ms ease, transform 100ms ease;
+    }
+    .add-btn:hover { filter: brightness(0.95); }
+    .add-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--accent-shadow); }
+    .secondary-btn {
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: border-color 120ms ease;
+    }
+    .secondary-btn:hover { border-color: var(--border-hover); }
+
+    .modal-desc {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .core-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 13px;
+      border-radius: 12px;
+      border: 1px solid var(--warn-border);
+      background: var(--warn-bg);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .core-notice strong { display: block; font-weight: 600; color: var(--text); }
+    .core-notice span { display: block; color: var(--muted); margin-top: 2px; }
+
+    .dep-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      font-size: 13px;
+    }
+    .dep-row span { color: var(--muted); }
+
+    details.mcp-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: var(--surface-2);
+      font-size: 13px;
+    }
+    details.mcp-card summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    details.mcp-card pre {
+      margin: 10px 0 0;
+      padding: 10px;
       border-radius: 8px;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -274,53 +483,66 @@
       font-size: 12px;
       color: var(--muted);
     }
-    @media (max-width: 640px) {
-      header { padding: 0 14px; }
-      main { padding: 24px 14px 60px; }
-      .scorecard { grid-template-columns: 1fr; }
+    .trust-foot {
+      font-size: 12px;
+      color: var(--subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      header {
+        grid-template-columns: auto 1fr auto;
+        padding: 0 14px;
+        gap: 10px;
+      }
+      .brand-sub, .open-app-btn, .kbd { display: none; }
+      main { padding: 20px 14px 64px; }
+      .grid { grid-template-columns: 1fr; }
+      .tabs { gap: 18px; }
     }
   </style>
 </head>
 <body>
   <header>
     <a class="brand" href="./">
-      <span>Syntax</span>
-      <span class="brand-tag">Community Hub</span>
+      <span class="brand-wordmark">Syntax</span>
+      <span class="brand-sub">Community</span>
     </a>
-    <div class="actions">
-      <button id="themeBtn" type="button" class="btn btn-sm">Light mode</button>
-      <a class="btn btn-sm" href="https://github.com/I-am-drunk/syntax-community" target="_blank" rel="noreferrer">Submit Package</a>
-      <a class="btn btn-sm btn-primary" href="https://i-am-drunk.github.io/syntax/">Open Syntax App</a>
+
+    <div class="search-wrap">
+      <span class="search-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </span>
+      <input id="searchInput" class="search-input" type="search" placeholder="Search plugins and courses..." aria-label="Search plugins and courses" />
+      <span class="kbd">/</span>
+    </div>
+
+    <div class="header-actions">
+      <button id="themeBtn" type="button" class="icon-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+      <a class="open-app-btn" href="https://i-am-drunk.github.io/syntax/">Open Syntax</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Syntax Community Hub</h1>
-      <p>
-        Explore verified courses (<code>.syntaxcourse</code>), app plugins (<code>.syntaxplugin</code>),
-        and reusable embedded libraries (<code>.syntaxembeddedplugin</code>). Click any package to open
-        and install it straight inside Syntax.
-      </p>
-    </section>
-
-    <div class="toolbar">
+    <div class="tabs-bar">
       <div class="tabs" id="kindTabs" role="tablist">
         <button class="tab is-active" data-kind="all" type="button">All</button>
         <button class="tab" data-kind="course" type="button">Courses</button>
-        <button class="tab" data-kind="plugin" type="button">App Plugins</button>
-        <button class="tab" data-kind="embedded-plugin" type="button">Embedded Plugins</button>
+        <button class="tab" data-kind="plugin" type="button">Plugins</button>
+        <button class="tab" data-kind="embedded-plugin" type="button">Embedded</button>
       </div>
-      <div class="search-wrap">
-        <input id="searchInput" class="search-input" type="search" placeholder="Search courses, plugins, tags..." aria-label="Search packages" />
-        <span class="kbd">/</span>
-      </div>
-    </div>
-
-    <div class="filters">
-      <button id="officialBtn" type="button" class="btn btn-sm">Official only</button>
-      <button id="coreBtn" type="button" class="btn btn-sm">Touches core only</button>
-      <span id="countPill" class="pill" style="margin-left:auto;">Loading catalog...</span>
+      <span id="countLabel" class="count-label"></span>
     </div>
 
     <div id="grid" class="grid"></div>
@@ -332,25 +554,31 @@
 
   <script>
     const SYNTAX_APP_URL = 'https://i-am-drunk.github.io/syntax/';
-    const KIND_LABELS = { course: 'Course', plugin: 'App Plugin', 'embedded-plugin': 'Embedded Plugin' };
+    const KIND_LABELS = { course: 'Course', plugin: 'Plugin', 'embedded-plugin': 'Embedded' };
+    const WARN_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+    const SUN_SVG = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
+    const MOON_SVG = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+    const FALLBACK_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#252525"/><circle cx="32" cy="32" r="10" fill="#a3a3a3"/></svg>';
 
     let allPackages = [];
-    let state = { kind: 'all', official: false, touchesCore: false, q: '' };
+    let state = { kind: 'all', q: '' };
 
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
     const savedTheme = localStorage.getItem('syntax-hub-theme') || 'dark';
     root.dataset.theme = savedTheme;
-    themeBtn.textContent = savedTheme === 'dark' ? 'Light mode' : 'Dark mode';
+    function syncThemeIcon() {
+      themeBtn.innerHTML = root.dataset.theme === 'dark' ? SUN_SVG : MOON_SVG;
+    }
+    syncThemeIcon();
 
     themeBtn.addEventListener('click', () => {
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
       localStorage.setItem('syntax-hub-theme', next);
-      themeBtn.textContent = next === 'dark' ? 'Light mode' : 'Dark mode';
+      syncThemeIcon();
     });
 
-    const FALLBACK_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#252525"/><circle cx="32" cy="32" r="10" fill="#a3a3a3"/></svg>';
     function svgDataUri(svg) {
       const safe = typeof svg === 'string' && svg.trim().startsWith('<svg') && svg.includes('</svg>') && !/<script|<foreignObject|javascript:|\bon[a-z]+\s*=/i.test(svg)
         ? svg.trim()
@@ -362,123 +590,136 @@
       return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
 
+    function closeDetail() {
+      document.getElementById('modalBackdrop').classList.remove('is-open');
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    }
+
     function openDetail(pkg) {
       const backdrop = document.getElementById('modalBackdrop');
       const box = document.getElementById('modalContent');
       const deepLink = SYNTAX_APP_URL + '?install=' + encodeURIComponent(pkg.id);
       const fileHref = './packages/' + encodeURIComponent(pkg.id + pkg.extension);
+      if (location.hash !== '#' + pkg.id) {
+        history.replaceState(null, '', '#' + pkg.id);
+      }
 
       box.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
-          <div class="card-top">
-            <img class="icon-box" style="width:58px;height:58px;" src="${svgDataUri(pkg.iconSvg)}" alt="" />
+        <div class="modal-head">
+          <div class="modal-identity">
+            <img class="modal-icon" src="${svgDataUri(pkg.iconSvg)}" alt="" />
             <div>
-              <h2 style="margin:0;font-size:20px;">${esc(pkg.name)}</h2>
-              <div class="meta">by @${esc(pkg.author.handle)} · v${esc(pkg.version)} · <code>${esc(pkg.extension)}</code></div>
-              <div class="pills" style="margin-top:6px;">
-                <span class="pill">${esc(KIND_LABELS[pkg.kind] || pkg.kind)}</span>
-                ${pkg.author.official ? '<span class="pill pill-official">Official</span>' : ''}
-              </div>
+              <h2 class="modal-title">${esc(pkg.name)}</h2>
+              <div class="modal-meta">@${esc(pkg.author.handle)} &middot; v${esc(pkg.version)}</div>
             </div>
           </div>
-          <button id="closeModalBtn" type="button" class="btn btn-sm">Close</button>
+          <button id="closeModalBtn" type="button" class="modal-close" aria-label="Close">&times;</button>
         </div>
-        <p class="tagline">${esc(pkg.description)}</p>
+
+        <div class="cta-row">
+          <a class="add-btn" href="${deepLink}">Add to Syntax</a>
+          <button id="copyLinkBtn" type="button" class="secondary-btn">Copy link</button>
+          <a class="secondary-btn" href="${fileHref}" download>Download</a>
+        </div>
+
+        <p class="modal-desc">${esc(pkg.description)}</p>
+
         ${pkg.touchesCore ? `
-          <div class="core-banner">
-            <strong>This plugin touches core.</strong>
-            <p>${esc(pkg.coreTouchReason || 'Integrates directly into core Syntax surfaces.')}</p>
+          <div class="core-notice">
+            <span class="warn-icon" style="margin-top:2px;">${WARN_SVG}</span>
+            <div>
+              <strong>This plugin touches core.</strong>
+              <span>${esc(pkg.coreTouchReason || 'Integrates directly into core Syntax surfaces.')}</span>
+            </div>
           </div>
         ` : ''}
-        <div class="scorecard">
-          <div><span>Automated Scan</span><strong>${esc(pkg.safety.automatedScan)}</strong></div>
-          <div><span>Isolation</span><strong>${pkg.touchesCore ? 'Core Integration' : 'Sandboxed'}</strong></div>
-          <div><span>Network Access</span><strong>${esc(pkg.safety.networkAccess)}</strong></div>
-        </div>
+
         ${pkg.requires && pkg.requires.length ? `
-          <div class="pill" style="border-radius:10px;padding:8px 12px;">
-            Auto-installs required embedded plugin: ${esc(pkg.requires.map(r => r.name).join(', '))}
+          <div class="dep-row">
+            <strong>Includes embedded plugin</strong>
+            <span>${esc(pkg.requires.map(r => r.name).join(', '))}</span>
           </div>
         ` : ''}
+
         ${pkg.aiUsage ? `
-          <div style="display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border);">
-            <strong style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--subtle);">AI Usage Card (MCP Discovery)</strong>
-            <p class="tagline" style="font-size:13px;">${esc(pkg.aiUsage.summary)}</p>
-            <div class="pills">${pkg.aiUsage.blocks.map(b => `<span class="pill pill-mono">${esc(b)}</span>`).join('')}</div>
+          <details class="mcp-card">
+            <summary>AI usage (MCP)</summary>
+            <p class="modal-desc" style="margin-top:8px;font-size:13px;">${esc(pkg.aiUsage.summary)}</p>
             <pre>${esc(pkg.aiUsage.example)}</pre>
-          </div>
+          </details>
         ` : ''}
-        <div style="display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:4px;">
-          <a class="btn" href="${fileHref}" download>Download ${esc(pkg.extension)}</a>
-          <a class="btn btn-primary" href="${deepLink}">Open &amp; Install in Syntax</a>
+
+        <div class="trust-foot">
+          <span>${esc(pkg.extension)}</span>
+          <span>${pkg.safety.automatedScan === 'passed' ? 'Scan passed' : 'Unverified'} &middot; ${pkg.touchesCore ? 'Core' : 'Sandboxed'}</span>
         </div>
       `;
+
       backdrop.classList.add('is-open');
-      document.getElementById('closeModalBtn').addEventListener('click', () => backdrop.classList.remove('is-open'));
+      document.getElementById('closeModalBtn').addEventListener('click', closeDetail);
+      const copyBtn = document.getElementById('copyLinkBtn');
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(location.href);
+          copyBtn.textContent = 'Copied';
+          setTimeout(() => { copyBtn.textContent = 'Copy link'; }, 1500);
+        } catch {}
+      });
     }
 
     document.getElementById('modalBackdrop').addEventListener('click', e => {
-      if (e.target.id === 'modalBackdrop') e.target.classList.remove('is-open');
+      if (e.target.id === 'modalBackdrop') closeDetail();
     });
 
     function render() {
       const q = state.q.trim().toLowerCase();
       const filtered = allPackages.filter(pkg => {
         if (state.kind !== 'all' && pkg.kind !== state.kind) return false;
-        if (state.official && !pkg.author.official) return false;
-        if (state.touchesCore && !pkg.touchesCore) return false;
-        if (!q) return true;
-        return (
-          pkg.name.toLowerCase().includes(q) ||
-          pkg.tagline.toLowerCase().includes(q) ||
-          pkg.id.toLowerCase().includes(q) ||
-          pkg.extension.toLowerCase().includes(q) ||
-          (pkg.tags || []).some(t => t.toLowerCase().includes(q)) ||
-          pkg.author.handle.toLowerCase().includes(q)
-        );
+        if (q) {
+          const hay = (pkg.name + ' ' + pkg.tagline + ' ' + pkg.author.handle + ' ' + (pkg.tags || []).join(' ')).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
       });
 
-      document.getElementById('countPill').textContent = `${filtered.length} ${filtered.length === 1 ? 'package' : 'packages'}`;
+      document.getElementById('countLabel').textContent =
+        filtered.length + (filtered.length === 1 ? ' item' : ' items');
+
       const grid = document.getElementById('grid');
-      if (!filtered.length) {
-        grid.innerHTML = '<div class="card"><p class="tagline">No packages match your current filter.</p></div>';
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="empty-state">No packages match your search.</div>';
         return;
       }
 
-      grid.innerHTML = filtered.map(pkg => {
-        const deepLink = SYNTAX_APP_URL + '?install=' + encodeURIComponent(pkg.id);
-        return `
-          <article class="card">
-            <div class="card-top">
-              <img class="icon-box" src="${svgDataUri(pkg.iconSvg)}" alt="" />
-              <div style="min-width:0;flex:1;">
-                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-                  <h2 class="card-title">${esc(pkg.name)}</h2>
-                  ${pkg.author.official ? '<span class="pill pill-official">Official</span>' : ''}
-                </div>
-                <div class="meta">@${esc(pkg.author.handle)} · v${esc(pkg.version)}</div>
+      for (const pkg of filtered) {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-top">
+            <img class="icon-box" src="${svgDataUri(pkg.iconSvg)}" alt="" />
+            <div class="card-head-text">
+              <div class="card-title-row">
+                <span class="card-title">${esc(pkg.name)}</span>
+                ${pkg.touchesCore ? `<span class="warn-icon" title="This plugin touches core." aria-label="This plugin touches core.">${WARN_SVG}</span>` : ''}
               </div>
+              <span class="card-author">
+                ${pkg.author.official ? '<span class="official-dot" title="Official"></span>' : ''}
+                @${esc(pkg.author.handle)}
+              </span>
             </div>
-            <p class="tagline">${esc(pkg.tagline)}</p>
-            <div class="pills">
-              <span class="pill">${esc(KIND_LABELS[pkg.kind] || pkg.kind)}</span>
-              <span class="pill pill-mono">${esc(pkg.extension)}</span>
-            </div>
-            ${pkg.touchesCore ? `<span class="core-warn">⚠ This plugin touches core.</span>` : ''}
-            <div class="card-footer">
-              <button type="button" class="btn btn-sm" data-inspect="${esc(pkg.id)}">Details</button>
-              <a class="btn btn-sm btn-primary" href="${deepLink}">Open in Syntax</a>
-            </div>
-          </article>
+          </div>
+          <p class="card-tagline">${esc(pkg.tagline)}</p>
+          <div class="card-foot">
+            <span>${esc(KIND_LABELS[pkg.kind] || pkg.kind)}</span>
+            <span>v${esc(pkg.version)}</span>
+          </div>
         `;
-      }).join('');
-
-      grid.querySelectorAll('[data-inspect]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const pkg = allPackages.find(p => p.id === btn.dataset.inspect);
-          if (pkg) openDetail(pkg);
-        });
-      });
+        card.addEventListener('click', () => openDetail(pkg));
+        grid.appendChild(card);
+      }
     }
 
     document.getElementById('kindTabs').addEventListener('click', e => {
@@ -490,35 +731,40 @@
     });
 
     const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', () => { state.q = searchInput.value; render(); });
+    searchInput.addEventListener('input', () => {
+      state.q = searchInput.value;
+      render();
+    });
+
     window.addEventListener('keydown', e => {
-      if (e.key === '/' && document.activeElement !== searchInput && !e.metaKey && !e.ctrlKey) {
+      if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
         searchInput.focus();
       } else if (e.key === 'Escape') {
-        document.getElementById('modalBackdrop').classList.remove('is-open');
+        if (document.getElementById('modalBackdrop').classList.contains('is-open')) {
+          closeDetail();
+        } else if (document.activeElement === searchInput) {
+          searchInput.value = '';
+          state.q = '';
+          searchInput.blur();
+          render();
+        }
       }
     });
 
-    document.getElementById('officialBtn').addEventListener('click', e => {
-      state.official = !state.official;
-      e.currentTarget.classList.toggle('btn-primary', state.official);
-      render();
-    });
-    document.getElementById('coreBtn').addEventListener('click', e => {
-      state.touchesCore = !state.touchesCore;
-      e.currentTarget.classList.toggle('btn-primary', state.touchesCore);
-      render();
-    });
-
-    fetch('./catalog/catalog.json', { cache: 'no-cache' })
+    fetch('./catalog/catalog.json', { cache: 'no-store' })
       .then(r => r.json())
       .then(data => {
-        allPackages = Array.isArray(data.packages) ? data.packages : [];
+        allPackages = data.packages || [];
         render();
+        const hashId = location.hash.replace(/^#/, '');
+        if (hashId) {
+          const found = allPackages.find(p => p.id === hashId);
+          if (found) openDetail(found);
+        }
       })
       .catch(() => {
-        document.getElementById('countPill').textContent = 'Failed to load catalog';
+        document.getElementById('countLabel').textContent = 'Unavailable';
       });
   </script>
 </body>
