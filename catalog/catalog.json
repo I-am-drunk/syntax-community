@@ -4,15 +4,13 @@
   "hubUrl": "https://i-am-drunk.github.io/syntax-community/",
   "syntaxAppUrl": "https://i-am-drunk.github.io/syntax/",
   "checksums": {
-    "mpm2d-analytic-geometry": "6e690d42d3ef82395026d9995c364f5f8d5f50736b84e876063d94de3c58af47",
-    "thinking-in-code": "a243a94f311c0ae0aaa33bcbd579193a4a14e7c90aac06311df70b903c16a4f8",
+    "mpm2d-analytic-geometry": "c8e4f406b3a8e773857cea70daf9c0a065de589bb2642ac6ad4b6448f7932b6d",
+    "thinking-in-code": "51579091e217eabc006d8c10c9a85d70af42b97d39ad7f6303b901fa722d353a",
     "math-graph-engine": "2453fb0408bd0561fc279ab662e2ce18eb69c6c8d5dd80b9d325491a27b11018",
     "grid-coding-engine": "2a90a17af16b53c757fc91137ca99fd6c209c4d4084f5cd555b4293925818392",
     "pen-studio": "a1b47107bbfe789b40e87bab4730b0226b7cb53a824eb381370950f4dec83df6",
     "walkthrough-player": "32cecfe4cb3d5eb98f56ffbf35bcc344cedc9499611407c7b8b220516fb21237",
-    "checkmark-gate": "2c511cda102a05dccc91c4a229c99fae8d118a35a0df1f0ff84c27a9a3d1f610",
     "floating-windows": "29e0bd352544f60c93fac410168a74c024d06f2b5c8234dcdeec2e7e9c999031",
-    "work-history": "7a9809169c7b6a34c856a45dcb62c87195ec8a9804ad85ffa8f9479f3547bd72",
     "formula-playbook": "a5b802bc88993dce1ecdbab11a621f9c7c69c5236991c7518a78af5dddbec23e",
     "unit-circle-lab": "b69a44c54f0543c44c3a225c89c3c3292cade0f77ac68896206b59c2b6edb894",
     "trig-intuition-101": "014c8cb36f5dff3f28ecfb350063324e17343fe293065e344915e3e7c196c683",
@@ -67,11 +65,6 @@
           "id": "formula-playbook",
           "kind": "plugin",
           "name": "Formula Playbook"
-        },
-        {
-          "id": "checkmark-gate",
-          "kind": "plugin",
-          "name": "Checkmark Gate"
         }
       ],
       "safety": {
@@ -116,13 +109,7 @@
           "name": "Grid Coding Engine"
         }
       ],
-      "optional": [
-        {
-          "id": "work-history",
-          "kind": "plugin",
-          "name": "Work History"
-        }
-      ],
+      "optional": [],
       "safety": {
         "automatedScan": "passed",
         "sandboxed": true,
@@ -291,40 +278,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "checkmark-gate",
-      "kind": "plugin",
-      "extension": ".syntaxplugin",
-      "name": "Checkmark Gate",
-      "tagline": "Draw a quick checkmark anywhere on a lesson to submit your answer.",
-      "description": "Adds a smooth single-stroke dotted checkmark gesture recognizer over the lesson pane so stylus and touch users can check answers naturally without hunting for buttons.",
-      "version": "1.0.0",
-      "author": {
-        "handle": "syntax",
-        "displayName": "Syntax Official",
-        "official": true,
-        "verified": true
-      },
-      "accentColor": "#22c55e",
-      "tags": [
-        "Gestures",
-        "Stylus",
-        "Productivity"
-      ],
-      "touchesCore": true,
-      "coreTouchReason": "Attaches a gesture recognition layer directly over the core Lesson Player viewport.",
-      "builtIn": true,
-      "safety": {
-        "automatedScan": "passed",
-        "sandboxed": true,
-        "networkAccess": "none",
-        "lastChecked": "2026-11-24",
-        "official": true
-      },
-      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#15803d\"/><path d=\"M18 33L28 43L47 22\" stroke=\"#ffffff\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
-      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/checkmark-gate.syntaxplugin"
-    },
-    {
-      "schemaVersion": 1,
       "id": "floating-windows",
       "kind": "plugin",
       "extension": ".syntaxplugin",
@@ -356,39 +309,6 @@
       },
       "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#4338ca\"/><rect x=\"13\" y=\"16\" width=\"28\" height=\"22\" rx=\"4\" stroke=\"#c7d2fe\" stroke-width=\"2.5\"/><rect x=\"23\" y=\"26\" width=\"28\" height=\"22\" rx=\"4\" fill=\"#4338ca\" stroke=\"#ffffff\" stroke-width=\"3\"/><path d=\"M23 33H51\" stroke=\"#ffffff\" stroke-width=\"2.5\"/></svg>",
       "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/floating-windows.syntaxplugin"
-    },
-    {
-      "schemaVersion": 1,
-      "id": "work-history",
-      "kind": "plugin",
-      "extension": ".syntaxplugin",
-      "name": "Work History",
-      "tagline": "Browse and jump back to every past answer and scratchpad snapshot.",
-      "description": "Saves a clean timeline of your worked answers and scratchpad sketches so you can review mistakes before a test and jump straight back into any question.",
-      "version": "1.0.0",
-      "author": {
-        "handle": "syntax",
-        "displayName": "Syntax Official",
-        "official": true,
-        "verified": true
-      },
-      "accentColor": "#14b8a6",
-      "tags": [
-        "History",
-        "Review",
-        "Notes"
-      ],
-      "touchesCore": false,
-      "builtIn": true,
-      "safety": {
-        "automatedScan": "passed",
-        "sandboxed": true,
-        "networkAccess": "none",
-        "lastChecked": "2026-11-24",
-        "official": true
-      },
-      "iconSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\"><rect width=\"64\" height=\"64\" rx=\"16\" fill=\"#0f766e\"/><circle cx=\"32\" cy=\"32\" r=\"16\" stroke=\"#ffffff\" stroke-width=\"3.2\"/><path d=\"M32 23V33L39 37\" stroke=\"#99f6e4\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
-      "packageUrl": "https://i-am-drunk.github.io/syntax-community/packages/work-history.syntaxplugin"
     },
     {
       "schemaVersion": 1,

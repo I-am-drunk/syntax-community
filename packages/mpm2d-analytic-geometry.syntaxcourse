@@ -46,11 +46,6 @@
       "id": "formula-playbook",
       "kind": "plugin",
       "name": "Formula Playbook"
-    },
-    {
-      "id": "checkmark-gate",
-      "kind": "plugin",
-      "name": "Checkmark Gate"
     }
   ],
   "safety": {

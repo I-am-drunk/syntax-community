@@ -30,13 +30,7 @@
       "name": "Grid Coding Engine"
     }
   ],
-  "optional": [
-    {
-      "id": "work-history",
-      "kind": "plugin",
-      "name": "Work History"
-    }
-  ],
+  "optional": [],
   "safety": {
     "automatedScan": "passed",
     "sandboxed": true,
