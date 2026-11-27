@@ -1,6 +1,6 @@
 # Syntax Community Hub
 
-The official catalog and discovery website for the **Syntax** learning platform, hosted free on GitHub Pages at `https://i-am-drunk.github.io/syntax-community/`.
+The official catalog and discovery website for the **Syntax** learning platform, hosted free on GitHub Pages at `https://syntax-platform.github.io/syntax-community/`.
 
 ## Package Formats
 
