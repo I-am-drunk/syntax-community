@@ -262,7 +262,7 @@
 
       async function syncEval() {
         if (!view) return renderPlane(null)
-        const res = await view.worker.call('evaluateGeometry', state)
+        const res = await view.callWorker('evaluateGeometry', state)
         renderPlane(res)
         document.getElementById('m-slope').textContent = res.isVertical ? 'undefined' : fmt(res.slope)
         document.getElementById('m-dist').textContent = fmt(res.distance)
@@ -310,7 +310,7 @@
 
       document.getElementById('next-btn').addEventListener('click', async () => {
         if (!view) return
-        await view.worker.call('nextChallenge')
+        await view.callWorker('nextChallenge')
         await syncEval()
       })
       document.getElementById('reset-btn').addEventListener('click', () => {
@@ -337,10 +337,10 @@
           void syncEval()
         },
       })
-      settings = { ...settings, ...(view.settings || {}) }
+      settings = { ...settings, ...(view.getSettings() || {}) }
 
-      if (view.documentId) {
-        const doc = await view.documents.get(view.documentId)
+      if (view.docId) {
+        const doc = await view.documents.get(view.docId)
         if (doc && doc.data && typeof doc.data.ax === 'number') {
           activeDocId = doc.id
           state = { ax: doc.data.ax, ay: doc.data.ay, bx: doc.data.bx, by: doc.data.by }

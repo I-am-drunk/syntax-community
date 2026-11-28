@@ -50,7 +50,7 @@
 
       const view = await connectSyntaxView({ applyTheme: true, autoResize: true })
       const [challenge, docs] = await Promise.all([
-        view.worker.call('getChallenge'),
+        view.callWorker('getChallenge'),
         view.documents.list(),
       ])
       document.getElementById('sub').textContent =

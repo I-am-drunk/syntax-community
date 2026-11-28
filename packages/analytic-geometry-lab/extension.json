@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "id": "syntax.analytic-geometry-lab",
   "name": "Analytic Geometry Lab",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "kind": "course",
   "description": "Interactive coordinate plane lab for slope, midpoint, distance, and linear equations with live guided challenges and saved snapshots.",
   "author": "Syntax",
