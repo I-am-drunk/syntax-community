@@ -1,0 +1,65 @@
+{
+  "formatVersion": 1,
+  "id": "syntax.analytic-geometry-lab",
+  "name": "Analytic Geometry Lab",
+  "version": "1.0.0",
+  "kind": "course",
+  "description": "Interactive coordinate plane lab for slope, midpoint, distance, and linear equations with live guided challenges and saved snapshots.",
+  "author": "Syntax",
+  "icon": "./icon.svg",
+  "worker": "./worker.js",
+  "contributes": {
+    "views": [
+      {
+        "id": "lab",
+        "title": "Analytic Geometry Lab",
+        "entry": "./views/lab.html",
+        "placement": "page",
+        "docTypes": ["geometry-snapshot"]
+      },
+      {
+        "id": "widget",
+        "title": "Analytic Geometry Quick Card",
+        "entry": "./views/widget.html",
+        "placement": "embed"
+      }
+    ],
+    "commands": [
+      {
+        "id": "newChallenge",
+        "title": "New Geometry Challenge",
+        "run": "newChallenge"
+      }
+    ],
+    "toolbar": [
+      {
+        "id": "openLab",
+        "label": "Geometry Lab",
+        "viewId": "lab"
+      }
+    ]
+  },
+  "settings": [
+    {
+      "id": "gridSnap",
+      "type": "boolean",
+      "label": "Snap points to integer grid",
+      "description": "Snap draggable points A and B to whole-number coordinates",
+      "default": true
+    },
+    {
+      "id": "showTriangle",
+      "type": "boolean",
+      "label": "Show rise/run slope triangle",
+      "description": "Display the dashed rise and run legs between points A and B",
+      "default": true
+    },
+    {
+      "id": "showMidpoint",
+      "type": "boolean",
+      "label": "Show midpoint marker",
+      "description": "Highlight the midpoint M along segment AB",
+      "default": true
+    }
+  ]
+}

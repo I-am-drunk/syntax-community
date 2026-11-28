@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytic Geometry Quick Card</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: var(--text, #111);
+        font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, sans-serif);
+      }
+      .wrap {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .copy h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+      .copy p { margin: 0; font-size: 13px; color: var(--muted, #666); }
+      .btn {
+        height: 34px;
+        padding: 0 14px;
+        border-radius: 10px;
+        border: 0;
+        background: #456dff;
+        color: #fff;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="copy">
+        <h3 id="title">Analytic Geometry Lab</h3>
+        <p id="sub">Loading progress...</p>
+      </div>
+      <button type="button" class="btn" id="open-btn">Continue Lab</button>
+    </div>
+    <script type="module">
+      import { connectSyntaxView } from 'https://syntax-platform.github.io/syntax-dev/sdk/syntax-view-v1.js'
+
+      const view = await connectSyntaxView({ applyTheme: true, autoResize: true })
+      const [challenge, docs] = await Promise.all([
+        view.worker.call('getChallenge'),
+        view.documents.list(),
+      ])
+      document.getElementById('sub').textContent =
+        `${challenge.solvedCount} / ${challenge.total} challenges solved · ${docs.length} saved ${docs.length === 1 ? 'snapshot' : 'snapshots'}`
+      document.getElementById('open-btn').addEventListener('click', () => {
+        void view.ui.openView('lab')
+      })
+    </script>
+  </body>
+</html>
